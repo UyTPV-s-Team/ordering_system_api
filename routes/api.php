@@ -21,4 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group([], function () {
     Route::apiResource('order', OrderController::class);
+    Route::put('/order/{orderId}/update-status-ready', [OrderController::class, 'updateStatusReady']);
+    Route::put('/order/{orderId}/update-status-preparation', [OrderController::class, 'updateStatusPreparation']);
+    Route::put('/order/{orderId}/update-status-delivered', [OrderController::class, 'updateStatusDelivered']);
+
 });
